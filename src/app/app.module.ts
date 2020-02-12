@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import {AuthGuardService} from "./helpers/auth-guard.service";
+import {SliderModule} from 'primeng/slider';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full', canActivate: [AuthGuardService]},
