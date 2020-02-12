@@ -38,7 +38,6 @@ export class LoginComponent implements OnInit {
 			return;
 		}
 
-
 		this.authenticationService.login(this.username.value, this.password.value).subscribe(data =>
 		{
 			this.loginFailed = false;
@@ -46,7 +45,6 @@ export class LoginComponent implements OnInit {
 		}, error => {
 			this.loginFailed = true;
 		})
-
 
 	}
 
@@ -56,7 +54,5 @@ export class LoginComponent implements OnInit {
 			password: new FormControl(null, Validators.required)
 		});
 	}
-
-
 
 }

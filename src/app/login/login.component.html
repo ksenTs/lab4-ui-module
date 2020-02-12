@@ -18,9 +18,9 @@
 
   <div class="submit">
     <button type="button" (click)="login()">Login</button>
+    <span *ngIf="loginFailed">Username or password is incorrect</span>
   </div>
 
-  <span *ngIf="loginFailed">Username or password is incorrect</span>
 
 </form>
 

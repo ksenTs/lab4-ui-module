@@ -18,7 +18,11 @@ export class AuthenticationService {
 	}
 
 	public get currentUser(): UserDto {
-		return this.currentUserSubject.value;
+		if (this.currentUserSubject) {
+			return this.currentUserSubject.value;
+		}
+
+		return null;
 	}
 
 	public login(username: string, password: string): Observable<UserDto> {
