@@ -11,29 +11,36 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import {AuthGuardService} from "./helpers/auth-guard.service";
 import {SliderModule} from 'primeng/slider';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {DropdownModule} from 'primeng/dropdown';
+import {InputTextModule} from 'primeng/inputtext';
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent, pathMatch: 'full', canActivate: [AuthGuardService]},
-  { path: 'login', component: LoginComponent, pathMatch: 'full'},
+	{ path: '', component: HomeComponent, pathMatch: 'full', canActivate: [AuthGuardService]},
+	{ path: 'login', component: LoginComponent, pathMatch: 'full'},
 
-  { path: '**', redirectTo: '' }
+	{ path: '**', redirectTo: '' }
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    HomeComponent
-  ],
-  imports: [
-    BrowserModule,
-    CommonModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
-  ],
-  providers: [ApplicationService],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		LoginComponent,
+		HomeComponent
+	],
+	imports: [
+		BrowserModule,
+		BrowserAnimationsModule,
+		CommonModule,
+		HttpClientModule,
+		FormsModule,
+		ReactiveFormsModule,
+		SliderModule,
+		DropdownModule,
+		InputTextModule,
+		RouterModule.forRoot(appRoutes)
+	],
+	providers: [ApplicationService],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

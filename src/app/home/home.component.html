@@ -1,2 +1,17 @@
-<!--<p-slider [(ngModel)]="value"></p-slider>-->
-<p>I work</p>
+<br>
+<span class="ui-float-label">
+    <input id="float-input-x" type="text" size="30" pInputText>
+    <label for="float-input-x">X value:</label>
+</span>
+
+
+<h3 class="first">Y value: {{value}}</h3>
+<p-slider [(ngModel)]="value" [style]="{'width':'14em'}"></p-slider>
+
+<br>
+<br>
+
+<span class="ui-float-label">
+    <input id="float-input-y" type="text" size="30" pInputText>
+    <label for="float-input-y">Radius:</label>
+</span>
