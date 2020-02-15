@@ -1,17 +1,29 @@
-<br>
-<span class="ui-float-label">
-    <input id="float-input-x" type="text" size="30" pInputText>
+<form [formGroup]="mainForm">
+  <br>
+  <span class="ui-float-label">
+    <input id="float-input-x" type="text" size="30" pInputText formControlName="xValue">
     <label for="float-input-x">X value:</label>
 </span>
+  <span *ngIf="form.controls.xValue.invalid && (form.controls.xValue.touched || form.controls.xValue.dirty)">Incorrect X value</span>
 
 
-<h3 class="first">Y value: {{value}}</h3>
-<p-slider [(ngModel)]="value" [style]="{'width':'14em'}"></p-slider>
+  <h3 class="first">Y value: {{getYValue()}}</h3>
+  <p-slider formControlName="yValue" [style]="{'width':'14em'}"></p-slider>
+<!--  fix me please-->
+  <br>
+  <br>
 
-<br>
-<br>
-
-<span class="ui-float-label">
-    <input id="float-input-y" type="text" size="30" pInputText>
+  <span class="ui-float-label">
+    <input id="float-input-y" type="text" size="30" pInputText formControlName="radius">
     <label for="float-input-y">Radius:</label>
-</span>
+  </span>
+  <span *ngIf="form.controls.radius.invalid && (form.controls.radius.touched || form.controls.radius.dirty)">Incorrect radius value</span>
+
+  <!--  fix me please-->
+  <br><br>
+  <button type="button" (click)="submitForm()">Submit Form</button>
+
+</form>
+
+<app-canvas [radius]="getRadius()"></app-canvas>
+

@@ -14,6 +14,8 @@ import {SliderModule} from 'primeng/slider';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {DropdownModule} from 'primeng/dropdown';
 import {InputTextModule} from 'primeng/inputtext';
+import {ButtonModule} from "primeng/button";
+import { CanvasComponent } from './canvas/canvas.component';
 
 const appRoutes: Routes = [
 	{ path: '', component: HomeComponent, pathMatch: 'full', canActivate: [AuthGuardService]},
@@ -26,7 +28,8 @@ const appRoutes: Routes = [
 	declarations: [
 		AppComponent,
 		LoginComponent,
-		HomeComponent
+		HomeComponent,
+		CanvasComponent
 	],
 	imports: [
 		BrowserModule,
@@ -38,6 +41,7 @@ const appRoutes: Routes = [
 		SliderModule,
 		DropdownModule,
 		InputTextModule,
+    ButtonModule,
 		RouterModule.forRoot(appRoutes)
 	],
 	providers: [ApplicationService],

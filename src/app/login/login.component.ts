@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
 	public loginForm: FormGroup;
 	public loginFailed: boolean;
 
+	//life cycle hooks
 	ngOnInit(): void {
 		this.createForm();
 	}
