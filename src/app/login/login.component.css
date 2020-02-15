@@ -3,8 +3,8 @@ body {
 }
 #loginForm {
   width: 290px;
-  padding: 24px 24px 0;
-  margin: 200px auto 0;
+  padding: 24px 13px 0;
+  margin: 0 auto;
   background: #FEFEFE;
   border: 1px solid #CAD8DE;
   border-radius: 4px;
@@ -49,8 +49,8 @@ body {
 }
 #loginForm .submit {
   overflow: hidden;
-  margin: 30px -24px 0;
-  padding: 22px 24px;
+  margin: 30px -13px 0;
+  padding: 22px 105px;
   background: #F0F5F7;
   border-top: 1px solid #DDE0E8;
   border-radius: 0 0 4px 4px;
@@ -90,3 +90,8 @@ body {
   outline: none;
 }
 #loginForm .submit button::-moz-focus-inner{border:0}
+
+.main-header {
+  text-align: center;
+  font: 30px/18px Arial, Tahoma, sans-serif;
+}

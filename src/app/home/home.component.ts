@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
 
     const validators = {
       xValueValidators: [Validators.required, Validators.min(-3), Validators.max(3)],
-      radiusValidators: [Validators.required, Validators.min(-3), Validators.max(3)]
+      radiusValidators: [Validators.required, Validators.min(0), Validators.max(3)]
     };
 
     this.mainForm = new FormGroup({

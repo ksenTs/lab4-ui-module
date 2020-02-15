@@ -7,19 +7,17 @@ import {Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChil
 })
 export class CanvasComponent implements OnChanges {
 
-  @Input() public radius: number;
+  @Input() public radius: number = 0;
 
   constructor() { }
 
   private ctx: CanvasRenderingContext2D;
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.radius) {
+    if (changes.radius && changes.radius.currentValue >= 0) {
       this.renderCanvas(changes.radius.currentValue);
     }
   }
-
-
 
   renderCanvas(radius: number): void {
     let canvas;
@@ -46,17 +44,24 @@ export class CanvasComponent implements OnChanges {
     this.ctx.beginPath();
 
     //Triangle
-    this.ctx.moveTo(startX, startY - radius / 2);
+    this.ctx.moveTo(startX, startY);
     this.ctx.lineTo(startX - radius / 2, startY);
-    this.ctx.lineTo(startX, startY);
+    this.ctx.lineTo(startX, startY + radius);
     this.ctx.fill();
 
-    //Quadrant
-    this.ctx.arc(startX, startY, radius, 0, 0.5 * Math.PI, false);
+    //Arc
+    this.ctx.moveTo(startX, startY);
+    this.ctx.lineTo(startX, startY - radius/2);
+    this.ctx.arc(startX, startY, radius/2, 2*Math.PI, 3*Math.PI/2, true);
+    this.ctx.lineTo(startX + radius/2, startY);
+    this.ctx.fill();
 
     //Rectangle
-    this.ctx.lineTo(startX - radius / 2, startY + radius);
-    this.ctx.lineTo(startX - radius / 2, startY);
+    this.ctx.moveTo(startX, startY);
+    this.ctx.lineTo(startX, startY - radius);
+    this.ctx.lineTo(startX - radius/2, startY - radius);
+    this.ctx.lineTo(startX - radius/2, startY);
+    this.ctx.lineTo(startX, startY);
     this.ctx.fill();
 
     //Lines
@@ -155,7 +160,7 @@ export class CanvasComponent implements OnChanges {
     if (pointsStr != null) {
       points = JSON.parse(pointsStr);
       for (let point of points) {
-        this.drawPoint(document.getElementById("canvas").getContext('2d'), 30 * point.x + 180, 180 - 30 * point.y, point.r);
+        // this.drawPoint(document.getElementById("canvas").getContext('2d'), 30 * point.x + 180, 180 - 30 * point.y, point.r);
       }
     }
   }
@@ -164,7 +169,7 @@ export class CanvasComponent implements OnChanges {
     const canvas = document.getElementById("canvas");
     const startX = canvas.height / 2;
     const startY = canvas.width / 2;
-    let radius = sessionStorage.getItem("radiusValue");
+    const radius = sessionStorage.getItem("radiusValue");
 
     // if (!isInArea((x - startX) / 150 * 5, (startY - y) / 150 * 5, r)) {
     //   context.fillStyle = 'red';

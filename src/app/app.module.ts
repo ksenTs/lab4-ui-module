@@ -16,6 +16,8 @@ import {DropdownModule} from 'primeng/dropdown';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from "primeng/button";
 import { CanvasComponent } from './canvas/canvas.component';
+import { ResultTableComponent } from './result-table/result-table.component';
+import {TableModule} from "primeng/table";
 
 const appRoutes: Routes = [
 	{ path: '', component: HomeComponent, pathMatch: 'full', canActivate: [AuthGuardService]},
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
 		AppComponent,
 		LoginComponent,
 		HomeComponent,
-		CanvasComponent
+		CanvasComponent,
+		ResultTableComponent
 	],
 	imports: [
 		BrowserModule,
@@ -42,6 +45,7 @@ const appRoutes: Routes = [
 		DropdownModule,
 		InputTextModule,
     ButtonModule,
+    TableModule,
 		RouterModule.forRoot(appRoutes)
 	],
 	providers: [ApplicationService],
